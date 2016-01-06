@@ -1,0 +1,32 @@
+{
+  "name": "casa-calida-installer",
+  "version": "0.1.0",
+  "description": "Installs the casa-calida-razpberry module, runs it and updates it automatically.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanmayer13/casa-calida-installer.git"
+  },
+  "keywords": [
+    "z-wave",
+    "raspberry",
+    "homeautomation",
+    "razberry",
+    "automation",
+    "casa-calida"
+  ],
+  "author": "Stefan Mayer <stefan@stefanmayer.me> (http://stefanmayer.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanmayer13/casa-calida-installer/issues"
+  },
+  "homepage": "https://github.com/stefanmayer13/casa-calida-installer#readme",
+  "dependencies": {
+    "crontab": "^1.1.2",
+    "forever": "^0.15.1"
+  }
+}
