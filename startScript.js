@@ -3,12 +3,13 @@
  */
 
 var forever = require('forever');
+var readLine = require('readline');
 
 module.exports = function startScript(uuid, config) {
-    var casaCalidaCommand = require('path').join('node_modules', 'casa-calida', 'lib', 'index.js');
+    var casaCalidaCommand = require('path').join(__dirname, 'node_modules', 'casa-calida', 'lib', 'index.js');
 
     forever.list(false, function (err, data) {
-        if (data.filter(function (script) {
+        if (data && data.filter(function (script) {
                 return script.uid === uuid && !!script.running;
             }).length > 0) {
             console.log('Stopping old process');

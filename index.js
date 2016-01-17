@@ -5,7 +5,6 @@
 var exec = require('child_process').exec;
 var fs = require('fs');
 var path = require('path');
-var readLine = require('readline');
 var startScript = require('./startScript');
 
 var uuid = 'd7a0d395-ae02-482d-92fc-73357d515275';
@@ -36,8 +35,8 @@ try {
 }
 
 console.log('Installing casa-calida.');
-exec('npm uninstall casa-calida', function () {
-    exec('npm install --production casa-calida',
+exec('npm uninstall -g casa-calida', function () {
+    exec('npm install -g --production casa-calida',
         function (error, stdout, stderr) {
             console.log(stdout);
             if (stderr) {
@@ -65,7 +64,8 @@ function start(windows) {
             var nodePath = process.execPath.split('/').slice(0, -1).join('/');
             var exportCommand = 'export PATH=' + nodePath + ':$PATH';
             var foreverCommand = require('path').join(__dirname, 'node_modules', 'forever', 'bin', 'forever');
-            var sysCommand = exportCommand + ' && ' + foreverCommand + ' start node_modules/.bin/casa-calida -- config=' + cliArguments['config'];
+            // var sysCommand = exportCommand + ' && ' + foreverCommand + ' start node_modules/.bin/casa-calida -- config=' + cliArguments['config'];
+            var sysCommand = exportCommand + ' && casa-calida config=' + absoluteConfigPath;
 
             crontab.remove({comment:uuid});
             crontab.create(sysCommand, '@reboot', uuid);

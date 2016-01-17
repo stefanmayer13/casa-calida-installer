@@ -1,11 +1,14 @@
 {
   "name": "casa-calida-installer",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "Installs the casa-calida-razpberry module, runs it and updates it automatically.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "casa-calida-installer": "index.js"
   },
   "repository": {
     "type": "git",
